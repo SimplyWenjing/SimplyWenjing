@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>测试页面</title>
+</head>
+<body>
+	<script type="text/javascript" src="curry.js"></script>
+	<script type="text/javascript">
+
+		/*柯里化应用*/
+		function add (num1,num2,num3) {
+			return num1 + num2 +num3;
+		}	
+		var curriedAdd = curry(add,5);
+		alert(curriedAdd(6,5));
+
+		/*延迟加载*/
+		var add2 = function() {
+		    var _this = this;
+		    var _args = arguments;
+		    return function() {//内函数
+		        if (!arguments.length) {
+		            var sum = 0;
+		            for (var i = 0;i<_args.length;i++) 
+		            	sum += _args[i];
+		            	return sum;
+		        } else {
+		            Array.prototype.push.apply(_args, arguments);//把内外函数的参数都存在_args数组中
+		            return arguments.callee;// 返回内函数
+		        }
+		    }
+		}
+		alert(add2(1)(4,5)());//10
+	</script>
+</body>
+</html>
