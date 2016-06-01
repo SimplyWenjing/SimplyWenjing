@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>拖拽功能的实现</title>
+</head>
+<body>
+	<div id="myDiv" class="drag" style="position: absolute;top:0;left: 0;width: 100px;height: 100px;border: 3px solid red"></div>
+	<script type="text/javascript">
+		var drag = function () {
+			var dragingElement = null;
+			var diffX = 0;
+			var diffY = 0;
+
+			function handleEvent (event) {
+				var target = event.target;
+				//确定事件类型
+				switch (event.type) {
+					// console.log(event.type);
+					case "mousedown":
+						if (target.className.indexOf("drag") > -1) {
+							dragingElement = target;
+							diffX = event.clientX - target.offsetLeft;
+							diffY = event.clientY - target.offsetTop;
+						}
+						break;
+					case "mousemove":
+						if (dragingElement != null) {
+							dragingElement.style.left = (event.clientX - diffX) + "px";
+							dragingElement.style.top = (event.clientY -diffY) +"px";
+						}
+						break;
+					case "mouseup":
+						dragingElement = null;
+						break;
+				};	
+			};
+			return {
+				enable: function () {
+					document.addEventListener("mousedown",handleEvent);
+					document.addEventListener("mousemove",handleEvent);
+					document.addEventListener("mouseup",handleEvent);
+				},
+				disable: function () {
+					document.removeEventListener("mousedown",handleEvent);
+					document.removeEventListener("mousemove",handleEvent);
+					document.removeEventListener("mouseup",handleEvent);
+				}
+			}
+		}();
+		drag.enable();
+	</script>
+</body>
+</html>
