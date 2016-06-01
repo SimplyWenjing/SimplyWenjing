@@ -6,7 +6,9 @@
 </head>
 <body>
 	<div id="myDiv" style="position: absolute;left: 0;top: 0;width: 100px;height: 100px;border: 1px solid black"></div>
+	<div id="arrayDiv"></div>
 	<script type="text/javascript" src="curry.js"></script>
+	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
 	<script type="text/javascript">
 
 /*==================柯里化应用==================*/
@@ -34,15 +36,24 @@
 		// }
 		// alert(add2(1)(4,5)());//10
 /*===================重复的定时器================*/
-	setTimeout(function () {
-		var div = document.getElementById("myDiv");
-		var left = parseInt(div.style.left) + 5;
-		div.style.left = left + "px";		
-		if (left < 200) {
-			setTimeout(arguments.callee,50);
-			console.log("move");
-		}
-	}, 50);	
+	// setTimeout(function () {
+	// 	var div = document.getElementById("myDiv");
+	// 	var left = parseInt(div.style.left) + 5;
+	// 	div.style.left = left + "px";		
+	// 	if (left < 200) {
+	// 		setTimeout(arguments.callee,50);
+	// 		console.log("move");
+	// 	}	
+	// }, 50);	
+/*===================测试数组分块==================*/
+	var data = ["Hello","I","am","vickygu",",","I","am","so","glad","today"];
+	function printValue (item) {
+		var arrayDiv = document.getElementById("arrayDiv");
+		arrayDiv.innerHTML += item + " ";
+	}
+	arrayChunk(data,printValue,null,200);
+
+
 	</script>
 </body>
 </html>
