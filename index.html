@@ -46,13 +46,21 @@
 	// 	}	
 	// }, 50);	
 /*===================测试数组分块==================*/
-	var data = ["Hello","I","am","vickygu",",","I","am","so","glad","today"];
-	function printValue (item) {
-		var arrayDiv = document.getElementById("arrayDiv");
-		arrayDiv.innerHTML += item + " ";
-	}
-	arrayChunk(data,printValue,null,200);
-
+	// var data = ["Hello","I","am","vickygu",",","I","am","so","glad","today"];
+	// function printValue (item) {
+	// 	var arrayDiv = document.getElementById("arrayDiv");
+	// 	arrayDiv.innerHTML += item + " ";
+	// }
+	// arrayChunk(data,printValue,null,200);
+/*========================测试函数节流=========================*/
+    n=0;
+    function resizeHandler(){
+        console.log(new Date().getTime());
+        console.log(++n);
+    }
+    //window.onresize = resizeHandler;
+    window.onresize = throttle2(resizeHandler,100);
+    
 
 	</script>
 </body>
