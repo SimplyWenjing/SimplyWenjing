@@ -9,6 +9,7 @@
 	<div id="arrayDiv"></div>
 	<script type="text/javascript" src="curry.js"></script>
 	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
+	<script type="text/javascript" src="../Code/cookies.js"></script>
 	<script type="text/javascript">
 
 /*==================柯里化应用==================*/
@@ -53,15 +54,23 @@
 	// }
 	// arrayChunk(data,printValue,null,200);
 /*========================测试函数节流=========================*/
-    n=0;
-    function resizeHandler(){
-        console.log(new Date().getTime());
-        console.log(++n);
-    }
-    //window.onresize = resizeHandler;
-    window.onresize = throttle2(resizeHandler,100);
-    
+    // n=0;
+    // function resizeHandler(){
+    //     console.log(new Date().getTime());
+    //     console.log(++n);
+    // }
+    // //window.onresize = resizeHandler;
+    // window.onresize = throttle2(resizeHandler,100);
+/*==========================测试cookie=========================*/
+	CookieUtil.set("name","Jay");
+	window.addEventListener("load",function () {
+		var arrayDiv = document.getElementById("arrayDiv");
+		CookieUtil.set("name", "Nicholas");
+	   	arrayDiv.innerHTML = "cookie:" + CookieUtil.get('name');
 
+	})
+    	
+    	// 
 	</script>
 </body>
 </html>
