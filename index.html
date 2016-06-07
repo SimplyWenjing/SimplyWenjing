@@ -62,15 +62,25 @@
     // //window.onresize = resizeHandler;
     // window.onresize = throttle2(resizeHandler,100);
 /*==========================测试cookie=========================*/
-	CookieUtil.set("name","Jay");
-	window.addEventListener("load",function () {
-		var arrayDiv = document.getElementById("arrayDiv");
-		CookieUtil.set("name", "Nicholas");
-	   	arrayDiv.innerHTML = "cookie:" + CookieUtil.get('name');
+	// CookieUtil.set("name","Jay");
+	// window.addEventListener("load",function () {
+	// 	var arrayDiv = document.getElementById("arrayDiv");
+	// 	CookieUtil.set("name", "Nicholas");
+	//    	arrayDiv.innerHTML = "cookie:" + CookieUtil.get('name');
 
-	})
-    	
-    	// 
+	// })
+/*=========================测试作用域链===========================*/
+var color = "blue";
+function changeColor () {
+	if (color === "blue") {
+		color = "red";
+	} else {
+		color = "blue";
+	}
+}
+changeColor();
+alert (color);
+//作用域链：全局环境的变量对象始终都是作用域链中的最后一个对象。
 	</script>
 </body>
 </html>
