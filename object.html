@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>对象和继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//原生模式
+		function Person () {}
+		Person.prototype = {
+			constructor: Person,
+			name: "vicky",
+			age: 24,
+			job: "student",
+			sayName: function (){
+				alert(this.name);
+			}
+		}
+		var friend = new Person();
+		friend.sayName();
+		
+	</script>
+</body>
+</html>
