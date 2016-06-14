@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>乐视笔试题模拟题</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//1、输入一个字符串和一个字符，输出该字符串中包含该字符的个数，不区分大小写
+		function countChar (string,c) {
+			var stringToArray = string.split("");//字符串转数组
+			var count = stringToArray.filter(function (item,index,array) {
+				return (item == c.toLowerCase() || item == c.toUpperCase() || item == c)
+			});
+			return count.length; 
+		}
+		console.log(countChar('aaaaaddgadggaga 2245','g'));
+	//2、计算字符串最后一个单词的长度
+		function countLastWord (string) {
+			var sArray = string.split(" ");
+			return sArray[sArray.length-1].toString().length;
+		}
+		console.log(countLastWord("hello world222 1"));
+	//笔试JS的输入输出
+		var readline = require('readline');
+		const rl = readline.createInterface({
+		        input: process.stdin,
+		        output: process.stdout
+		});
+		rl.on('line', function(line1){
+			rl.on('line', function(line2){
+				
+			})
+		   
+		});
+
+	</script>
+</html>
+</body>
