@@ -26,14 +26,30 @@
 	</ul>
 	
 	<script type="text/javascript">
-		var lists = document.getElementsByTagName("li");
-		for (var i = 0,l = lists.length;i<l;i++) {
-			var getNum = function (index) {
-				return function () {
-					alert(index+1);
-				}
-			}(i);
-			lists[i].addEventListener("click",getNum,false);
+		// var lists = document.getElementsByTagName("li");
+		// for (var i = 0,l = lists.length;i<l;i++) {
+		// 	var getNum = function (index) {
+		// 		return function () {
+		// 			alert(index+1);
+		// 		}
+		// 	}(i);
+		// 	lists[i].addEventListener("click",getNum,false);
+		// }
+		function createFunctions(){
+			  var result = new Array();
+			  for (var i=0; i < 10; i++){
+			    result[i] = function(num){
+				    return num;
+				    // return function () {
+				    // 	return num;
+				    // }
+			    }(i);
+			  }
+			  return result;
+			}
+		var funcs = createFunctions();
+		for (var i=0; i < funcs.length; i++){
+		  console.log(funcs[i]);
 		}
 	</script>
 </body>
