@@ -7,33 +7,81 @@
 <body>
 	<script type="text/javascript">
 	//1、输入一个字符串和一个字符，输出该字符串中包含该字符的个数，不区分大小写
-		function countChar (string,c) {
+		/*function countChar (string,c) {
 			var stringToArray = string.split("");//字符串转数组
 			var count = stringToArray.filter(function (item,index,array) {
 				return (item == c.toLowerCase() || item == c.toUpperCase() || item == c)
 			});
 			return count.length; 
 		}
-		console.log(countChar('aaaaaddgadggaga 2245','g'));
+		console.log(countChar('aaaaaddgadggaga 2245','g'));*/
 	//2、计算字符串最后一个单词的长度
-		function countLastWord (string) {
+		/*function countLastWord (string) {
 			var sArray = string.split(" ");
 			return sArray[sArray.length-1].toString().length;
 		}
-		console.log(countLastWord("hello world222 1"));
+		console.log(countLastWord("hello world222 1"));*/
 	//笔试JS的输入输出
-		var readline = require('readline');
+		/*var readline = require('readline');
 		const rl = readline.createInterface({
 		        input: process.stdin,
 		        output: process.stdout
 		});
 		rl.on('line', function(line1){
 			rl.on('line', function(line2){
+
 				
 			})
 		   
-		});
+		});*/
+
+
+/*process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input = "";
+var input_array = "";
+
+process.stdin.on('data', function (data) {
+    input += data;
+});
+
+process.stdin.on('end', function () {
+    input_array = input.split("\n");
+    var nLine = 0;
+
+    while(nLine < input_array.length){
+    	var line = input_array[nLine++].trim();
+    	if(line === ''){
+    		continue;
+    	}
+        var input_arrays = line.split(' ');
+        var a = +input_arrays[0];
+        var b = +input_arrays[1];
+        console.log(a+b);
+    }
+});*/
+
+	function countPlan (num,string) {
+		slength = string.trim().length;//字符串的长度
+		var stringToArray = string.split(" ");//字符串转数组
+		for (var i = 0,l = stringToArray.length;i<l;i++){//遍历数组			
+			for(var j = 0, len = stringToArray[i].length;j<len;j++){//遍历每一项这个数组
+				stringToArray[i] = stringToArray[i].split("");//将每一项转为数组
+				if(string.slice(i,slength).indexOf(stringToArray[i][j]) !=-1){
+					stringToArray[i].pop(stringToArray[i][j]);
+				}
+			}
+			return stringToArray;
+		}
+		
+	}
+	console.log(countPlan(2,"3 015 5"));
+
+
+
 
 	</script>
+
 </html>
 </body>
