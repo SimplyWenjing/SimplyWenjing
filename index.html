@@ -8,6 +8,15 @@
 	<!-- <div id="myDiv" style="position: absolute;left: 0;top: 0;width: 100px;height: 100px;border: 1px solid black"></div> -->
 	<div id="arrayDiv"></div>
 	<ul id="list"><li>1</li><li>2</li><li>3</li></ul>
+	<fieldset>
+		<legend>你最喜欢哪种颜色？</legend>
+		<ul>
+			<li><input type="radio" value="green" name="color" id="color-green"></li>
+			<label for="color-green">绿色</label>
+			<li><input type="radio" value="black" name="color" id="color-black"></li>
+			<label for="color-black">黑色</label>
+		</ul>
+	</fieldset>
 	<script type="text/javascript" src="curry.js"></script>
 	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
 	<script type="text/javascript" src="../Code/cookies.js"></script>
@@ -88,11 +97,14 @@
 // console.log(w.pageWidth);
 
 /*==========================测试NodeList转换成数组函数======================*/
-	var list = document.getElementById("list");
-	var lists = list.childNodes;
-	var listsArray = convertToArray(lists);
-	list.removeChild(list.childNodes[0]);
-	console.log(listsArray);
+	// var list = document.getElementById("list");
+	// var lists = list.childNodes;
+	// var listsArray = convertToArray(lists);
+	// list.removeChild(list.childNodes[0]);
+	// console.log(listsArray);
+/*============================测试getElementByName()==============================*/
+	var radios = document.getElementsByName("color");
+	console.log(radios);
 	</script>
 </body>
 </html>
