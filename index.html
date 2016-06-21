@@ -103,8 +103,12 @@
 	// list.removeChild(list.childNodes[0]);
 	// console.log(listsArray);
 /*============================测试getElementByName()==============================*/
-	var radios = document.getElementsByName("color");
-	console.log(radios);
+	// var radios = document.getElementsByName("color");
+	// console.log(radios);
+	var element = document.createElement("div");
+	var elementText = document.createTextNode("Hello vicky!");
+	element.appendChild(elementText);
+	document.body.appendChild(element);
 	</script>
 </body>
 </html>
