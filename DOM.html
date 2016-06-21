@@ -6,12 +6,25 @@
 </head>
 <body>
 	<div id="div"> Hello DOM </div>
+	<ul id="my-list"></ul>
 	<script type="text/javascript">
 		divNode = document.getElementById("div");
 		if(divNode.nodeType == 1){
 			alert("Node is an element.")
 			console.log(divNode.nodeValue);
 		}
+//文档片段，可以用作一个仓库，用来存放将来可能会添加到文档中的节点，这样将li标签放在片段中，可以避免浏览器返回渲染。
+		var fragment = document.createDocumentFragment();
+		var ul = document.getElementById("my-list");
+		var li = null;
+
+		for (var i = 0; i < 3; i++) {
+			li = document.createElement("li");
+			li.appendChild(document.createTextNode("Item" + (i+1)));
+			fragment.appendChild(li);
+		}
+
+		ul.appendChild(fragment);
 
 	</script>
 </body>
