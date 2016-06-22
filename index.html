@@ -33,6 +33,7 @@
 		</ul>
 	</fieldset>
 	<div class="strong red border big">你好，vicky，你在学习HTML5的新特性吗？</div>
+	<input type="button" value="确定" onclick="console.log('hello')">
 	<script type="text/javascript" src="curry.js"></script>
 	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
 	<script type="text/javascript" src="../Code/cookies.js"></script>
@@ -130,6 +131,11 @@
 	div.classList.remove("big");
 	div.classList.add("red");
 	div.classList.toggle("strong");
+	var inputs = document.getElementsByTagName("input");
+	var btn = inputs[inputs.length-1];
+	btn.focus();
+	// alert(document.activeElement == btn);
+	alert(document.hasFocus(btn));
 	</script>
 </body>
 </html>
