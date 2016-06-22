@@ -3,6 +3,21 @@
 <head>
 	<meta charset="utf-8" />
 	<title>测试页面</title>
+	<style type="text/css">
+		.big{
+			font-size: 44px;
+		}
+		.red{
+			color:red;
+		}
+		.strong{
+			font-weight: bolder;
+		}
+		.border{
+			border:1px dashed black;
+		}
+
+	</style>
 </head>
 <body>
 	<!-- <div id="myDiv" style="position: absolute;left: 0;top: 0;width: 100px;height: 100px;border: 1px solid black"></div> -->
@@ -17,12 +32,12 @@
 			<label for="color-black">黑色</label>
 		</ul>
 	</fieldset>
+	<div class="strong red border big">你好，vicky，你在学习HTML5的新特性吗？</div>
 	<script type="text/javascript" src="curry.js"></script>
 	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
 	<script type="text/javascript" src="../Code/cookies.js"></script>
 	<script type="text/javascript" src="../Code/commonFunc.js"></script>
 	<script type="text/javascript">
-
 /*==================柯里化应用==================*/
 		// function add (num1,num2,num3) {
 		// 	return num1 + num2 +num3;
@@ -105,10 +120,16 @@
 /*============================测试getElementByName()==============================*/
 	// var radios = document.getElementsByName("color");
 	// console.log(radios);
-	var element = document.createElement("div");
-	var elementText = document.createTextNode("Hello vicky!");
-	element.appendChild(elementText);
-	document.body.appendChild(element);
+	// var element = document.createElement("div");
+	// var elementText = document.createTextNode("Hello vicky!");
+	// element.appendChild(elementText);
+	// document.body.appendChild(element);
+/*================================测试删除类名函数=================================*/
+	var div = document.querySelector(".strong");
+	removeClass(div,"red");
+	div.classList.remove("big");
+	div.classList.add("red");
+	div.classList.toggle("strong");
 	</script>
 </body>
 </html>
