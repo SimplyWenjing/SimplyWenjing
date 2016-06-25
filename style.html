@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>style样式</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="box" style="border: 10px solid green">vicky</div>
+	<script type="text/javascript" src="../Code/commonFunc.js"></script>
+	<script type="text/javascript">
+	var box = document.getElementsByTagName("div")[0];
+	// var computedStyle = document.defaultView.getComputedStyle(box,null);
+	// console.log(computedStyle.width);
+	var width = getCSS(box,"width");
+	console.log(width);
+	</script>
+
+</body>
+</html>
