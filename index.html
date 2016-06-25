@@ -16,6 +16,12 @@
 		.border{
 			border:1px dashed black;
 		}
+		.strong {
+			width:600px;
+			height: 100px;
+			margin-left:auto;
+			margin-right: auto;
+		}
 
 	</style>
 </head>
@@ -126,7 +132,7 @@
 	// element.appendChild(elementText);
 	// document.body.appendChild(element);
 /*================================测试删除类名函数=================================*/
-	var div = document.querySelector(".strong");
+	/*var div = document.querySelector(".strong");
 	removeClass(div,"red");
 	div.classList.remove("big");
 	div.classList.add("red");
@@ -135,7 +141,10 @@
 	var btn = inputs[inputs.length-1];
 	btn.focus();
 	// alert(document.activeElement == btn);
-	alert(document.hasFocus(btn));
+	alert(document.hasFocus(btn));*/
+/*==============================测试取得元素位置函数============================*/
+	var div = document.querySelector(".red");
+	console.log(getElementLocation(div).left);
 	</script>
 </body>
 </html>
