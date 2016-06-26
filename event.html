@@ -18,6 +18,7 @@
 <body>
 	<div id="div">
 		<input id="btn" type="button" value="点我有惊喜" /> 
+		<input id="text" type="text" />
 	</div>	
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
@@ -34,6 +35,26 @@
 		}
 		EventUtil.addHandler(box,"click",handleBox);
 		EventUtil.addHandler(btn,"click",handleBtn);
+
+		var text = document.getElementById("text");
+		EventUtil.addHandler(text,"keydown",function (event) {
+			var event = EventUtil.getEvent(event);
+			var keys = new Array();
+			if (event.shiftKey) {
+				keys.push("shift")
+			}
+
+			if (event.ctrlKey) {
+				keys.push("ctrl");
+			}
+			console.log(keys);
+		}) ;
+		EventUtil.addHandler(text,"textInput",function (event) {
+			var event = EventUtil.getEvent(event);
+			alert(event.data);
+
+		})
+		
 		
 	</script>
 
