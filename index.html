@@ -44,6 +44,7 @@
 	<script type="text/javascript" src="../Code/advancedFunc.js"></script>
 	<script type="text/javascript" src="../Code/cookies.js"></script>
 	<script type="text/javascript" src="../Code/commonFunc.js"></script>
+	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
 /*==================柯里化应用==================*/
 		// function add (num1,num2,num3) {
@@ -143,8 +144,14 @@
 	// alert(document.activeElement == btn);
 	alert(document.hasFocus(btn));*/
 /*==============================测试取得元素位置函数============================*/
+	// var div = document.querySelector(".red");
+	// console.log(getElementLocation(div).left);
+/*=============================测试事件处理函数==============================*/
 	var div = document.querySelector(".red");
-	console.log(getElementLocation(div).left);
+	var handle = function () {
+		alert("hi, vicky");
+	}
+	EventUtil.addHandler(div,"click",handle)
 	</script>
 </body>
 </html>
