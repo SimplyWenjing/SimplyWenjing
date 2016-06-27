@@ -20,6 +20,11 @@
 		<input id="btn" type="button" value="点我有惊喜" /> 
 		<input id="text" type="text" />
 	</div>	
+	<ul id="my-list">
+		<li id="vicky">vicky</li>
+		<li id="jay">jay</li>
+		<li id="hanna">hanna</li>
+	</ul>
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
 		var box = document.getElementById("div");
@@ -53,7 +58,26 @@
 			var event = EventUtil.getEvent(event);
 			alert(event.data);
 
+		});
+
+		//事件委托
+		var myList = document.getElementById("my-list");
+		EventUtil.addHandler(myList, "click", function (event) {
+			var event = EventUtil.getEvent(event);
+			var target = EventUtil.getTarget(event);
+			switch (target.id) {
+				case "vicky" :
+					console.log("hello vicky");
+					break;
+				case "jay" :
+					console.log("hello jay");
+					break;
+				case "hanna" :
+					console.log("hello hanna");
+					break;
+			}
 		})
+
 		
 		
 	</script>
