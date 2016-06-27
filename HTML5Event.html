@@ -27,6 +27,38 @@
 	</ul>
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
+	//readystatechange事件,确定外部js是否加载完毕
+	EventUtil.addHandler(window, "load", function () {
+		var script = document.createElement("script");
+		EventUtil.addHandler(script, "readystatechange", function (event) {
+			var event = EventUtil.getEvent(event);
+			var target = event.getTarget(event);
+			if (target.readyState == "loaded" || target.readyState == "complete") {
+				EventUtil.removeHandler(target, "readystatechange", arguments.callee);
+				alert("event.js is loaded");
+			}
+		});
+		script.src = "test.js";
+		document.body.appendChild(script);
+	})
+	//readystatechange 事件，确定外部css是否加载完毕
+	EventUtil.addHandler(window, "load", function () {
+		var link = document.createElement("link");
+		link.type = "text/css";
+		link.rel = "stylesheet";
+
+		EventUtil.addHandler(link,"readystatechange", function (event) {
+			var event = EventUtil.getEvent(event);
+			var target = EventUtil.getTarget(event);
+
+			if (target.readyState == "loaded" || target.readyState == "complete") {
+				EventUtil.removeHandler(target, "readystatechange", arguments.callee);
+			}
+		});
+		link.href = "test.css";
+		document.getElementsByTagName("head")[0].appendChild(link);
+	})
+	//contextmenu事件
 	EventUtil.addHandler(window,"load",function (event) {
 		var div = document.getElementById("myDiv");
 		EventUtil.addHandler(div, "contextmenu", function (event) {
@@ -40,7 +72,9 @@
 		EventUtil.addHandler(document, "click", function (event) {
 			document.getElementById("myMenu").style.visibility = "hidden";
 		})
-	})
+	});
+	
+
 	</script>
 </body>
 </html>
