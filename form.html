@@ -51,6 +51,22 @@
 	textBox.value = "Hello world!";
 	selectText(textBox,0,textBox.value.length);
 	selectText(textBox,0,3);
+
+	//屏蔽所有按键操作
+	/*EventUtil.addHandler(textAreaBox,"keypress", function(event) {
+		event = EventUtil.getEvent(event);
+		EventUtil.preventDefault(event);
+	})*/
+	//只允许用户输入数值
+	EventUtil.addHandler(textAreaBox, "keypress", function (event) {
+		event = EventUtil.getEvent(event);
+		var target = EventUtil.getTarget(event);
+		var charCode = EventUtil.getCharCode(event);
+
+		if (!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 && ! event.ctrlKey ) {
+			EventUtil.preventDefault(event);
+		};
+	})
 	</script>
 
 </body>
