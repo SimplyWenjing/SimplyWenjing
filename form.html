@@ -6,12 +6,25 @@
 </head>
 <body>
 	<form id="my-form" method="post">
-		<input type="text" size="30" >
-		<textarea rows="4" cols="30">请输入今天的心情</textarea>
+		<input type="text" size="30" ></br>
+		<textarea rows="4" cols="30">请输入今天的心情</textarea></br>
+		<select id="select-list" multiple='multiple'>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
 	</form>
+	<iframe src="riched.html" name="richedit" style="height: 100px;width: 300px;"></iframe>
+	<div id="rich-div" contenteditable style="width: 100px;height: 200px;"></div>
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript" src="../Code/form.js"></script>
 	<script type="text/javascript">
+	//将iframe中页面变为富文本编辑器
+	EventUtil.addHandler(window, "load", function () {
+		frames["richedit"].document.designMode = "on";
+	})
 	//focus,blur,change事件。change事件：对于input和textarea，在他们失去焦点且value值改变时触发，select其选项改变时触发
 	var textBox = document.forms[0].elements[0];
 	var textAreaBox = textBox.nextElementSibling;
