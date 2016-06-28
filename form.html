@@ -10,6 +10,7 @@
 		<textarea rows="4" cols="30">请输入今天的心情</textarea>
 	</form>
 	<script type="text/javascript" src="../Code/event.js"></script>
+	<script type="text/javascript" src="../Code/form.js"></script>
 	<script type="text/javascript">
 	//focus,blur,change事件。change事件：对于input和textarea，在他们失去焦点且value值改变时触发，select其选项改变时触发
 	var textBox = document.forms[0].elements[0];
@@ -45,7 +46,11 @@
 		event = EventUtil.getEvent(event);
 		var target = EventUtil.getTarget(event);
 		target.select();
-	})
+	});
+	//测试selectText()
+	textBox.value = "Hello world!";
+	selectText(textBox,0,textBox.value.length);
+	selectText(textBox,0,3);
 	</script>
 
 </body>
