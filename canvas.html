@@ -5,7 +5,7 @@
 	<title>canvas绘图</title>
 </head>
 <body>
-	<canvas id="drawing" width="400" height="300"></canvas>
+	<canvas id="drawing" width="900" height="900"></canvas>
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
 		var drawing = document.getElementById("drawing");
@@ -45,7 +45,21 @@
 			context.fillText("6",200,290);
 			context.fillText("3",285,205);
 			context.fillText("9",115,205);
-
+		//将原点变换为表盘中心
+			context.beginPath();
+			context.arc(500,500,100,0,2*Math.PI,false);
+			context.moveTo(595,500);
+			context.arc(500,500,95,0,2*Math.PI,false);
+			//变换原点
+			context.translate(500,500);
+			context.rotate(1);
+			context.moveTo(0,0);
+			context.lineTo(0,-85);
+			context.moveTo(0,0);
+			context.lineTo(-65,0);
+			context.stroke();
+		//绘制渐变矩形
+		
 		};
 	</script>
 
