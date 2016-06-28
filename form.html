@@ -6,11 +6,15 @@
 </head>
 <body>
 	<form id="my-form" method="post">
-		<input type="text">
+		<input type="text" size="30" >
+		<textarea rows="4" cols="30">请输入今天的心情</textarea>
 	</form>
 	<script type="text/javascript" src="../Code/event.js"></script>
 	<script type="text/javascript">
+	//focus,blur,change事件。change事件：对于input和textarea，在他们失去焦点且value值改变时触发，select其选项改变时触发
 	var textBox = document.forms[0].elements[0];
+	var textAreaBox = textBox.nextElementSibling;
+	console.log(textAreaBox);
 	EventUtil.addHandler(textBox,"focus",function (event) {
 		var event = EventUtil.getEvent(event);
 		var target = EventUtil.getTarget(event);
@@ -35,6 +39,12 @@
 		} else {
 			target.style.backgroundColor = "";
 		}
+	});
+	//select()方法选择文本框中的所有文本
+	EventUtil.addHandler(textAreaBox,"focus", function (event) {
+		event = EventUtil.getEvent(event);
+		var target = EventUtil.getTarget(event);
+		target.select();
 	})
 	</script>
 
