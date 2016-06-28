@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Form表单的学习</title>
+</head>
+<body>
+	<form id="my-form" method="post">
+		<input type="text">
+	</form>
+	<script type="text/javascript" src="../Code/event.js"></script>
+	<script type="text/javascript">
+	var textBox = document.forms[0].elements[0];
+	EventUtil.addHandler(textBox,"focus",function (event) {
+		var event = EventUtil.getEvent(event);
+		var target = EventUtil.getTarget(event);
+		if (target.style.backgroundColor !== "pink") {
+			target.style.backgroundColor = "#eeeeee";
+		}
+	});
+	EventUtil.addHandler(textBox, "blur", function (event) {
+		var event = EventUtil.getEvent(event);
+		var target = EventUtil.getTarget(event);
+		if (/[^\d]/.test(target.value)) {
+			target.style.backgroundColor = "pink";
+		} else {
+			target.style.backgroundColor = "";
+		}
+	});
+	EventUtil.addHandler(textBox, "change", function (event) {
+		var event = EventUtil.getEvent(event);
+		var target = EventUtil.getTarget(event);
+		if (/[^\d]/.test(target.value)) {
+			target.style.backgroundColor = "pink";
+		} else {
+			target.style.backgroundColor = "";
+		}
+	})
+	</script>
+
+</body>
+</html>
