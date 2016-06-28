@@ -31,11 +31,20 @@
 			context.arc(200,200,94,0,2*Math.PI,false);
 			//绘制分针
 			context.moveTo(200,200);
-			context.lineTo(200,115);
+			context.lineTo(200,125);
 			//绘制时针
 			context.moveTo(200,200);
 			context.lineTo(135,200);
 			context.stroke();
+
+			//绘制文本
+			context.font = "bold 14px Arial";
+			context.textAlign = "center";
+			context.textBaseLine = "middle";
+			context.fillText("12",200,120);
+			context.fillText("6",200,290);
+			context.fillText("3",285,205);
+			context.fillText("9",115,205);
 
 		};
 	</script>
