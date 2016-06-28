@@ -59,7 +59,13 @@
 			context.lineTo(-65,0);
 			context.stroke();
 		//绘制渐变矩形
-		
+		context.translate(100,100)
+		var gradient = context.createLinearGradient(30,30,50,50);
+		gradient.addColorStop(0,"white");
+		gradient.addColorStop(1,"black");
+		context.fillStyle = gradient;
+		context.fillRect(30,30,50,50);
+
 		};
 	</script>
 
