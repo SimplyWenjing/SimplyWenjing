@@ -7,8 +7,8 @@
 <body>
 	<script type="text/javascript">
 
-	//正则表达式字面量和RegExp对象
-	var re = null ;
+//正则表达式字面量和RegExp对象
+	/*var re = null ;
 	var i;
 	for (i = 0; i < 10; i++) {
 		re = /cat/g;
@@ -23,7 +23,33 @@
 	}
 
 	var text = "mom and dad and baby";
-	var pattern = /mom(and dad(and baby)?)?/gi/
+	var pattern = /mom(and dad(and baby)?)?/gi/*/
+
+//exec()方法,接受一个参数，即要应用模式的字符串。返回包含第一个匹配项信息的数组
+	/*var text = "cat,bat,sat,fat";
+	var pattern1 = /.at/;
+
+	var matches = pattern1.exec(text);
+	console.log(matches.index);//0
+	console.log(matches[0]);//cat
+	console.log(pattern1.lastIndex);//0
+
+	var pattern2 = /.at/gi;
+
+	var matches = pattern2.exec(text);
+	console.log(matches.index);//0
+	console.log(matches[0]);//cat
+	console.log(pattern2.lastIndex);//0
+	console.log(matches);*/
+
+//test()方法，接受一个字符串参数。在模式与给定字符串匹配的情况下返回true，否则返回false。在想知道目标字符串与某个模式是否匹配，但不需要知道其文本内容的情况下，使用test（）很方便
+
+	var text = "000-00-0000";
+	var pattern = /\d{3}-\d{2}-\d{4}/;
+
+	if (pattern.test(text)) {
+		console.log("match!");
+	};
 	</script>
 
 </body>
