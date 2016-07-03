@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>RegExp的学习</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//正则表达式字面量和RegExp对象
+	var re = null ;
+	var i;
+	for (i = 0; i < 10; i++) {
+		re = /cat/g;
+		var result = re.test("catastrophe");
+		console.log(result);
+	}
+
+	for (i = 0; i < 10; i++){
+		re = new RegExp("cat","g");
+		var result2 = re.test("catastrophe");
+		console.log(result2);
+	}
+
+	var text = "mom and dad and baby";
+	var pattern = /mom(and dad(and baby)?)?/gi/
+	</script>
+
+</body>
+</html>
