@@ -26,6 +26,7 @@
 	</ul>
 	
 	<script type="text/javascript">
+		//这个例子是《高级程序设计》中的例子，解决办法是利用闭包。但是，现在有个更好的方法，用let就可以了，因为let声明的变量只在块级作用域存在。
 		var lists = document.getElementsByTagName("li");
 		for (var i = 0,l = lists.length; i < l; i ++) {
 			var getNum = function (index) {
