@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>精准定位元素的参数</title>
+	<style type="text/css">
+		#element {
+			height: 600px;
+			overflow: scroll;
+			width: 500px;
+			border:8px solid red;
+			margin: 30px auto;
+			padding: 0;
+		}
+		#son-element{
+			background: green;
+			border:8px solid #eee;
+			width: 400px;
+			height: 800px;
+			margin: 30px auto;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="element">
+		Hello element
+		<div id="son-element"></div>
+	</div>
+	<script type="text/javascript">
+		var element = document.getElementById("element");
+		var son = element.firstElementChild;
+		var sonScrollH = son.scrollTop;
+		var sonClientH = son.clientHeight;
+		console.log(son.height);
+		console.log("scrollHeight:" + sonScrollH +"//////" + "clientHeight:" + sonClientH);
+
+	</script>
+
+</body>
+</html>
