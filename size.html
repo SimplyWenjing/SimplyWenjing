@@ -30,10 +30,35 @@
 	<script type="text/javascript">
 		var element = document.getElementById("element");
 		var son = element.firstElementChild;
-		var sonScrollH = son.scrollTop;
-		var sonClientH = son.clientHeight;
-		console.log(son.height);
-		console.log("scrollHeight:" + sonScrollH +"//////" + "clientHeight:" + sonClientH);
+		var elementScrollH = element.scrollHeight;//整个元素的大小，包括边框,如果有滚动条就是去掉滚动条后，整个元素撑开的大小
+		var elementClientH = element.clientHeight;// 元素的大小，不考虑滚动,不包括边框，=内容+padding
+		var elementOffsetH = element.offsetHeight;// 元素大小，包括边框，不考虑滚动
+		var elementOffsetW = element.offsetWidth;
+		var elementOffsetT = element.offsetTop; //因为有滚动，所以有的内容被隐藏，这里指被隐藏起来的部分的高度
+		//console.log(son.height);
+		//console.log("scrollHeight:" + sonScrollH +"//////" + "clientHeight:" + sonClientH);
+		son.addEventListener("click",function(event){
+			
+			alert("clientX:"  + event.clientX);// clientX 是到浏览器显示区域的偏移量，不包括滚动条和工具栏
+			alert("screenX:"  + event.screenX)//screenX是到屏幕的偏移量
+			alert("offsentX:" + event.offsetX); //到元素内边框的
+			
+
+		},false);
+		
+
+		function scrollToTop (element){ 
+		    if(element.scrollTop != 0){   
+		        element.scrollTop = 0;
+		    }
+		}
+
+		element.addEventListener("click", function(){
+			scrollToTop(element);
+		}, false);
+		element.addEventListener("click",function (event) {
+			alert("offsetHeight:" + elementOffsetH + "; scrollHeight:" + elementScrollH + "; clientHeight:" + elementClientH + "; offsetWidth:" + elementOffsetW + "; offsetTop:" + elementOffsetT);
+		}, false );
 
 	</script>
 
