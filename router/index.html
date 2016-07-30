@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>单页面的路由</title>
+</head>
+<body>
+	<div class="container"> 
+		<nav class="mainMenu"> 
+			<ul> 
+				<li><a href="#/">首页</a></li> 
+				<li><a href="#/page1">页面1</a></li>
+				<li><a href="#/page2">页面2</a></li> 
+				<li><a href="#/page3">页面3</a></li> 
+				<li><a href="#/page4">页面4</a></li> 
+			</ul> 
+		</nav> 
+		<div class="content"></div> 
+	</div>
+	<script type="text/javascript">
+		(function () { 
+			function Router () {} 
+			Router.prototype.route = function ( path, callback ) { 
+				var url = location.hash.slice(1) || '/'; 
+				// 刷新时的处理 
+				window.addEventListener('load', function () { 
+					if ( url == path ) { 
+						callback(); 
+					} 
+				}, false); 
+				// hash变化时的处理 
+				window.addEventListener('hashchange', function () { 
+					url = location.hash.slice(1) || '/'; 
+					if ( url == path ) { 
+						callback(); 
+					} 
+				}, false); 
+			}; 
+			window.Router = new Router(); 
+		})();
+
+
+		var content = document.querySelectorAll('.content'); // 测试函数，这里可以放一些ajax处理之类的 
+		function loadContent ( text ) { 
+			content[0].innerHTML = text;
+		} 
+		// 注意：这里的path要和html里面锚链接对应 
+		// 如：‘#/’对应‘/’, '#/page2'对应'/page2' 
+		Router.route('/', function () { 
+			loadContent('这是首页'); 
+		}); 
+		Router.route('/page1', function () { 
+			loadContent('这是页面1'); 
+		}); 
+		Router.route('/page2', function () { 
+			loadContent('这是页面2'); 
+		}); 
+		Router.route('/page3', function () { 
+			loadContent('这是页面3'); 
+		}); 
+		Router.route('/page4', function () { 
+			loadContent('这是页面4'); 
+		});
+	</script>
+
+</body>
+</html>
