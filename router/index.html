@@ -19,7 +19,7 @@
 	</div>
 	<script type="text/javascript">
 		(function () { 
-			function Router () {} 
+			function Router () {} //Router构造函数
 			Router.prototype.route = function ( path, callback ) { 
 				var url = location.hash.slice(1) || '/'; 
 				// 刷新时的处理 
