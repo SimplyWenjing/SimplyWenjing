@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>WebWorker实现多线程</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){
+			var worker = new Worker("worker.js");
+			var data = 100;
+			worker.onmessage = function (event) {
+				alert("Hello:"+event.data);//101,因为在worker.js里面，data+1了
+			};
+			worker.postMessage(data);
+		})();
+		
+	</script>
+
+</body>
+</html>
