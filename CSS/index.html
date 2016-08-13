@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>布局</title>
+	<style type="text/css">
+		#left-fixed-container,#right-fixed-container{
+			width: 60%;
+			border: 3px solid black;
+			margin: 10px auto;
+			position: relative;
+		}
+/*-------------------左固定，右自适应------------------------------*/
+		#left-fixed-left{
+			width: 200px;
+			height: 300px;
+			background-color: green;
+		/*=====第一种，左边固定宽度，左浮动=====*/
+			/*float: left;*/
+		/*=====第二种，左边固定宽度，左浮动=====*/
+			/*float: left;*/
+		/*=====第三种，右边绝对定位=====*/
+			
+		}
+		#left-fixed-right{
+			height: 300px;
+			background-color: red;
+		/*======第一种，右边加overflow：hidden=====*/
+			/*overflow: hidden;*/
+		/*=====第二种，右边加margin-left=左边宽度=====*/
+			/*margin-left: 200px;*/
+		/*=====第三种，右边绝对定位=====*/
+			position: absolute;
+			left: 200px;
+			right: 0;
+			bottom: 0;
+		}
+
+/*----------------------右固定，左自适应------------------------------------------*/
+		#right-fixed-left{
+			height: 300px;
+			background-color: red;
+		/*=====第一种，左div margin-left=-右div宽；左浮动=====*/	
+			/*margin-right: -200px;
+			float: left;
+			width: 100%;*/
+		/*=====第二种，左margin-right=右宽度=====*/
+			margin-right: 200px;
+
+		}
+		#right-fixed-right{
+			width: 200px;
+			height: 300px;
+			background: green;
+		/*=====第一种，右div固定宽度，右浮动=====*/
+			/*float: right;*/
+		/*=====第二种，右div固定宽度，绝对定位，right：0=====*/
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		/*=====第一种，清除浮动=====*/
+		/*#right-fixed-container:after{
+			content: "clear";
+			visibility: hidden;
+			display: block;
+			line-height: 0;
+			clear: both;
+		}*/
+		/*.clear{
+			clear: both;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="left-fixed-container">
+		<!-- <h3>左div固定宽度，右div宽度自适应</h3> -->
+		<div id="left-fixed-left">左div固定宽度</div>
+		<div id="left-fixed-right">右div宽度自适应</div>
+	</div>
+	<div id="right-fixed-container">
+		<!-- <h3>右div固定宽度，左div宽度自适应</h3> -->
+		<div id="right-fixed-left">左div宽度自适应</div>
+		<div id="right-fixed-right">右div宽度固定</div>
+		<!-- <div class="clear"></div> -->
+	</div>
+
+</body>
+</html>
