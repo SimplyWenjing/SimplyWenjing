@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>三列等高布局</title>
+	<style type="text/css">
+		.wrapper{
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+		}
+		.box{
+			width: 250px;
+			padding: 20px 20px 520px 20px;
+			margin-bottom: -500px;
+			margin-left: 20px;
+			float: left;
+			display: inline;
+			background-color: #eee
+		}
+		.bottom{
+			position: absolute;
+			bottom: 0;
+			height: 20px;
+			width: 290px;
+			background-color: #eee;
+			margin-left: -20px;
+		}
+		/*.wrapper{
+			-moz-column-count: 3;
+			-moz-column-width: 10em;
+			-moz-column-gap: 2em;
+			-moz-column-rule: 1px solid black;
+			-webkit-column-count: 3;
+			-webkit-column-width: 10em;
+			-webkit-column-gap: 2em;
+			-webkit-column-rule: 1px solid black;
+			column-count: 3;
+			column-width: 10em;
+			column-gap: 2em;
+			column-rule: 1px solid black;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="box">
+			<h1>Andy Budd</h1>
+			<p>Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd Andy Budd </p>
+			<div class="bottom"></div>
+		</div>
+		<div class="box">
+			<h1>Vicky</h1>
+			<p>Vicky is very beautiful.</p>
+			<div class="bottom"></div>
+		</div>
+		<div class="box">
+			<h1>Jay Chou</h1>
+			<p>Vicky loves Jay Chou very much!</p>
+			<div class="bottom"></div>
+		</div>
+	</div>
+
+
+</body>
+</html>
