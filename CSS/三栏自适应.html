@@ -15,7 +15,8 @@
 			height: 100%;
 			position: relative;
 		}
-		#left,#right{
+/*=====第一种方法，绝对定位法=====*/
+		/*#left,#right{
 			position: absolute;
 			width: 200px;
 			top: 0;
@@ -33,14 +34,31 @@
 			margin:0px 210px;
 			background-color: green;
 			height: 100%;
+		}*/
+/*=====第二种方法，浮动法=====*/
+		#left,#right{
+			width: 200px;
+			height: 100%;
+		}
+		#left{
+			float: left;
+			background-color: red;
+		}
+		#right{
+			float: right;
+			background-color: blue;
+		}
+		#main{
+			margin: 0 210px;
+			height: 100%;
 		}
 	</style>
 </head>
 <body>
-	<div id="container">
-		<div id="main"></div>
+	<div id="container">		
 		<div id="left"></div>	
 		<div id="right"></div>
+		<div id="main"></div>
 	</div>
 	
 </body>

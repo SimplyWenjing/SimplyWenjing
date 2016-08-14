@@ -1,0 +1,83 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8" />  
+    <title>三列布局</title>  
+    <style type="text/css">
+        html,body{  
+            height: 100%;  
+            background: #fff;  
+        }  
+        body{  
+            width:100%;  
+            /*设置body为伸缩容器*/  
+            display: -webkit-flex;/*新版本：Chrome*/  
+            display: flex;/*新版本：Opera 12.1,Firefox 20+*/  
+            /*伸缩项目换行*/  
+            -webkit-flex-flow: column wrap;  
+            flex-flow: column wrap;  
+        }  
+        section{  
+            width: 100%;  
+            margin-top: 1%;  
+            margin-bottom: 1%;  
+            /*设置section为伸缩容器*/ 
+            display: -webkit-flex;  
+            display: flex;  
+            /*伸缩项目换行*/  
+            -webkit-flex-flow: row wrap;  
+            flex-flow: row wrap;  
+            /*设置伸缩性*/  
+            -webkit-flex: 1;  
+            flex: 1;  
+        }  
+        article{  
+            border:1px solid black;  
+            margin-left: 2%;  
+            margin-right: 2%;  
+            vertical-align: middle;  
+            -webkit-flex: 1;/*新版本*/  
+            flex: 1;/*新版本*/  
+            -webkit-order: 2;  
+            order: 2;  
+        }  
+        aside{  
+            width:25%;  
+            border:1px solid black;  
+            -webkit-order: 3;/*新版本*/  
+            order: 3;/*新版本*/  
+        }  
+        nav{  
+            border:1px solid black;  
+            width:20%;  
+        }  
+        header,footer,article,aside,nav{  
+            padding:1%;   
+        }  
+        header{  
+            min-width: 100%;  
+            min-height: 100px;  
+            border:1px solid black;  
+            line-height: 100px;  
+            text-align: center;  
+        }  
+        footer{  
+            min-width: 100%;  
+            min-height: 60px;  
+            border:1px solid black;  
+            background: #eee;  
+            line-height: 100px;  
+            text-align: center;  
+        }  
+    </style> 
+</head>  
+<body>  
+    <header>我是页眉</header>  
+    <section>  
+        <article>我是主内容</article>  
+        <nav>我是导航</nav>  
+        <aside><p>我是右边栏</p></aside>  
+    </section>  
+    <footer>我是页脚</footer>  
+</body>  
+</html>  
