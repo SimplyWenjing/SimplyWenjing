@@ -37,6 +37,29 @@
 	var values = [1,2,3,4,5,6];
 	values.reverse();
 	console.log('reverse()反转后：' + values);//6,5,4,3,2,1
+/*-----------------------------原生JS实现reverse------------------------------------*/
+	var reverse = function (arr) {
+		var len = arr.length;
+		var re  = [];
+		while(arr.length > 0){			
+			re.push(arr.pop());
+		}
+		return re;
+	}
+	var A = [1,2,3,4,5];
+	// console.log(reverse(A));
+	// console.log(A);
+
+	var reverse1 = function (arr) {
+		var len = arr.length;
+		var re  = [];
+		for( var i = len-1; i > -1; i --){
+			re.push(arr[i]);
+		}
+		return re;
+	}
+	console.log(reverse1(A));
+	console.log(A);
 
 	var values2 = [0,1,5,10,15];
 	values2.sort();
@@ -96,6 +119,23 @@
 		return prev + cur;
 	})
 	console.log(sum);
+/*----------------------------数组去重方法 distinct-------------------------------------*/
+	var distinct = function (arr) {
+		var len  = arr.length;
+		var json = {};
+		var dis  = [];
+		for (var i = 0; i < len; i ++) {
+			var val = arr[i];
+			if(!json[val]){
+				json[val] = 1;
+				dis.push(val);
+			}
+		} 
+		return dis;
+ 	}
+
+ 	var testArray = [1,2,2,2,3,5,4,4];
+ 	console.log(distinct(testArray));
 	</script>
 </body>
 </html>
