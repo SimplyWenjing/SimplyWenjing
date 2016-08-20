@@ -13,6 +13,10 @@
 			this.friends = ['Jay','Hanna','Vicky'];
 			console.log(this);
 		}
+
+		var p1 = Person("xiaoming",3);
+		var p2 = new Person("xiaohong",3);
+		// p1 this指向为window，p2this指向为Person，p1是调用Person方法，将其属性和方法都加在了window对象上。
 		Person.prototype.sayHello = function () {
 			console.log(this.name + 'Hello!');
 		}
@@ -35,7 +39,8 @@
 		var student1 = new Student ("xiaoming",22,"male");
 		student1.friends.push("David");
 		console.log(student1.friends + "    " );
-		student1.sayHello()
+		student1.sayHello();
+		alert(student1.constructor);
 		var student2 = new Student("xiaohong",23,"female");
 		console.log(student2.friends);
 		student2.isGirl();
@@ -50,13 +55,21 @@
 			prototype.constructor = child;
 			child.prototype       = prototype;
 		}
+		function extend (Child,Parent) {
+			function F () {}
+			F.prototype = Parent.prototype;
+			Child.prototype = new F();
+			Child.prototype.constructor = Child;
+			Child.uber = Parent.prototype;
+		}
 
 
 		function Singer (name,age,country) {
 			Person.call(this,name,age);
 			this.country = country;
 		}
-		inheritPrototype(Singer,Person);
+		//inheritPrototype(Singer,Person);
+		extend(Singer,Person);
 		Singer.prototype.fromWhere = function () {
 			console.log("The singer is from:" + this.country);
 		}
@@ -64,6 +77,25 @@
 		var singer1 = new Singer("Jay",37,"China");
 		singer1.sayHello();
 		singer1.fromWhere();
+
+
+
+//测试 为什么不让子类的原型=父类的原型
+		function Father() {}
+		Father.prototype.type = "Person";
+
+		function Son(name) {
+			this.name = name;
+		}
+		console.log(Father.prototype.constructor);
+		Son.prototype = Father.prototype;
+		Son.prototype.constructor = Son;
+		var son = new Son("Liming");
+		console.log(son.type);
+		console.log(Father.prototype.constructor);
+
+
+
 
 	</script>
 </body>
