@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>继承的学习</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//组合继承，借用构造函数来继承属性，原型来继承方法
+		function Person (name,age) {
+			this.name    = name;
+			this.age     = age;
+			this.friends = ['Jay','Hanna','Vicky'];
+			console.log(this);
+		}
+		Person.prototype.sayHello = function () {
+			console.log(this.name + 'Hello!');
+		}
+		function Student (name,age,sex) {
+			Person.call(this,name,age);
+			this.sex = sex;
+		}
+
+		Student.prototype = new Person();
+		Student.prototype.constructor = Student;
+		Student.prototype.isGirl = function () {
+			var isGirl;
+			if(this.sex !== "female"){
+				isGirl = false;
+			} else {
+				isGirl = true;
+			}
+			console.log("isGirl:" + isGirl);
+		};
+		var student1 = new Student ("xiaoming",22,"male");
+		student1.friends.push("David");
+		console.log(student1.friends + "    " );
+		student1.sayHello()
+		var student2 = new Student("xiaohong",23,"female");
+		console.log(student2.friends);
+		student2.isGirl();
+		//组合继承的缺点：会两次调用父类的构造函数，一次是创建子类原型的时候，一次是调用子类子类构造函数的时候。改进方法：使用寄生组合式继承，不必为了指定子类型的原型而调用父类的构造函数，我们所需要的无非是超类型原型的一个副本而已。
+		function object(o){
+			function F () {}
+			F.prototype = o;
+			return new F();
+		}
+		function inheritPrototype (child,parent) {
+			var prototype         = Object.create(parent.prototype); 
+			prototype.constructor = child;
+			child.prototype       = prototype;
+		}
+
+
+		function Singer (name,age,country) {
+			Person.call(this,name,age);
+			this.country = country;
+		}
+		inheritPrototype(Singer,Person);
+		Singer.prototype.fromWhere = function () {
+			console.log("The singer is from:" + this.country);
+		}
+
+		var singer1 = new Singer("Jay",37,"China");
+		singer1.sayHello();
+		singer1.fromWhere();
+
+	</script>
+</body>
+</html>
