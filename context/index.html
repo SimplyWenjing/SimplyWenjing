@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>作用域和执行环境的学习</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//测试 没有块级作用域
+	function test (o) {
+		var i = 0;
+		if (typeof o == "object") {
+			var j = 0;
+			for(var k = 0; k < 10; k++){
+				console.log(k);
+			}
+			console.log(k);
+		}
+		console.log(j);
+	}
+
+	function num (){
+		var result = new Array();
+		for(var i = 0; i < 10; i++) {
+			result[i] = i;
+		}
+		return result;
+	}
+
+	console.log(num());
+	var o = new Object();
+	test(o);		
+
+	//测试闭包
+
+	var scope = "global scope";
+	function checkscope () {
+		var scope = "local scope";
+		return function () {
+			return scope;
+		}
+	}
+	console.log(checkscope()());//"local scope"
+	var name = "The window";
+	function myObject () {
+		var name = "my Object";
+		return function () {
+			return name;
+		}
+	}
+	var myObject1 = {
+		name: "my object1",
+		getName: function () {
+			var that = this;
+			return function () {
+				return that.name;
+			}
+		}
+	}
+	console.log(myObject()());//"my Object"
+	console.log(myObject1.getName()());//"my object"
+
+	var num = 1;
+	function showNum () {
+		var num = 0;
+		return function () {
+			console.log(this.num);
+		}
+	}
+
+	var f = showNum();
+	f();
+	</script>
+</body>
+</html>
