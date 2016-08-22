@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>理解闭包的几个小例子</title>
+</head>
+<body>
+	<script type="text/javascript">
+/*-----Example1-----*/
+		function showNum1(){
+	    // Local variable that ends up within closure			
+			var num = 42;
+			var show = function () {
+				console.log(num);
+			}
+			num ++;
+			return show;
+		}
+		var showNum = showNum1();
+		showNum(); // 43
+/*-----Example2-----*/
+	var gLogNumber, gIncreaseNumber, gSetNumber;
+	function setupSomeGlobals() {
+	    // Local variable that ends up within closure
+	    var num = 42;
+	    // Store some references to functions as global variables
+	    gLogNumber = function() { 
+	    	console.log(num); 
+	    }
+	    gIncreaseNumber = function() { 
+	    	num++; 
+	    }
+	    gSetNumber = function(x) { 
+	    	num = x; 
+	    }
+	}
+
+	setupSomeGlobals();
+	gIncreaseNumber();
+	gLogNumber(); // 43
+	gSetNumber(5);
+	gLogNumber(); // 5
+
+	var oldLog = gLogNumber;
+	setupSomeGlobals();
+	gLogNumber(); // 42
+	oldLog() // 5
+/*-----Example3-----*/
+	function buildList(list) {
+	    var result = [];
+	    len = list.length;
+	    for (var i = 0; i < len; i++) {
+	        
+	        result.push( 
+	        	(function (num){
+	        	return function() {
+	        		var item = 'item' + (num+1);
+	        		console.log(item + '-' + list[num])
+	        	}})(i)
+	        );
+	    }
+	    return result;
+	}
+	function testList() {
+	    var fnList = buildList([1,2,3]);
+	    var lenF = fnList.length; 
+	    // Using j only to help prevent confusion -- could use i.
+	    for (var j = 0; j < lenF; j++) {
+	        fnList[j]();
+	    }
+	}
+	testList();//"item2 undefined" 3 times
+	
+	</script>
+</body>
+</html>
