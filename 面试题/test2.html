@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css 图片映射</title>
+	<style type="text/css">
+		#img{
+			position: relative;
+			width: 300px;
+			height: 300px;
+		}
+		#img a{
+			display: block;
+			position: absolute;
+			width: 60px;
+ 			height: 60px;
+ 			bottom: 60px;
+ 			left: 8px;
+			text-indent: -1000em;
+		}
+		#img a:hover,#img a:focus{
+			border: 1px solid #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="img">
+		<img src="img/img.jpg" height="300" width="300">
+		<a href="https://www.baidu.com/">点击</a>
+	</div>
+
+</body>
+</html>

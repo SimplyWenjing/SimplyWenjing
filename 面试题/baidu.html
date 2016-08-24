@@ -4,25 +4,97 @@
 	<meta charset="utf-8">
 	<title>百度面试</title>
 	<style type="text/css">
-		.box{
+		.content,.btn{
 			float: left;
+		}
+		.btn{
+			margin-top: 40px;
+		}
+		#left-list,#right-list{
 			width: 100px;
+			height: 200px;
 			text-align: center;
+		}
+		#left-list,#right-list option{
+			padding-top: 5px !important;
+			padding-bottom: 5px !important;
+		}
+		#add-btn,#del-btn{
+			display: block;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			margin: 5px;
+			background-color: #eee;
+			padding:3px;
+		}
+		#img{
+			background:url(img/img.jpg) no-repeat;
+			width: 300px;
+			height: 300px;
+			position: relative;
 		}
 	</style>
 </head>
 <body>
-	<div class="box">
-		<ul>
-			<li>list1</li>
-			<li>list2</li>
-			<li>list3</li>
-			<li>list4</li>
-		</ul>		
-	</div>
-	<div class="box">
-		
-	</div>
+	<section id="Test1">
+		<div class="content">
+			<select id="left-list" multiple="multiple">
+				<option value="1">list1</option>
+				<option value="2">list2</option>
+				<option value="3">list3</option>
+				<option value="4">list4</option>
+			</select>
+		</div>
+
+		<div class="btn">
+			<span id="add-btn">添加到右边</span>
+			<span id="del-btn">删除到左边</span>		
+		</div>
+
+		<div class="content">
+			<select id="right-list" multiple>		
+			</select>
+		</div>
+	</section>
+	<section id="test2">
+		<div id="img">
+			<a href="baidu.html">click</a>
+		</div>
+	</section>
+	
+
+	
+	<script type="text/javascript">
+		var leftList = document.getElementById("left-list");
+		var rightList = document.getElementById("right-list");
+		var addBtn = document.getElementById("add-btn");
+		var delBtn = document.getElementById("del-btn");
+		leftList.addEventListener("click",function (event) {
+			var target = event.target;
+			target.className = "";
+			target.className += "selected";
+		},false);
+		rightList.addEventListener("click",function (event) {
+			var target = event.target;
+			target.className = "";
+			target.className += "deleted";
+		},false);
+		addBtn.addEventListener("click",function () {
+			var selectedLists = document.querySelectorAll(".selected");
+			for(var i = 0, l = selectedLists.length; i < l; i++){
+				rightList.appendChild(selectedLists[i]);
+			}
+		},false);
+		delBtn.addEventListener("click",function () {
+			var selectedLists = document.querySelectorAll(".deleted");
+			for(var i = 0, l = selectedLists.length; i < l; i++){
+				leftList.appendChild(selectedLists[i]);
+			}
+		},false);
+
+	</script>
+	
+	
 
 </body>
 </html>
