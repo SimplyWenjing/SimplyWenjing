@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>网易面试</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//if中声明的变量的作用域是什么
+	if(true) {
+		var text = "hello";
+	}
+	function test () {
+		if (true) {
+			var value = 1;
+		};
+	}
+	console.log(text);//hello 作用域是window
+	// console.log(value);//error 作用域在函数里
+
+	//闭包
+
+	function createFunction () {
+		var result = new Array ();
+		for(var i = 0; i < 10; i++){
+			result[i] = function (num){
+				return function (){
+					return num;
+				}
+			}(i);
+		}
+		return result;
+	}
+
+	console.log(createFunction()[1]());
+	</script>
+
+</body>
+</html>
