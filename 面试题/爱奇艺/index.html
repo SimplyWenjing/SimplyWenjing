@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>aiqiyi</title>
+</head>
+<body>
+	<script type="text/javascript">
+//算运动员得分，去掉一个最高分去掉一个最低分，剩下的平均值保留一位小数
+
+		function score(arr){
+			var len = arr.length;
+			if (len != 7) {
+				console.log("请输入所有7个裁判的打分！")
+			}
+			//将比分排序，用快速排序；				
+			var validScore = quickSort(arr);
+			validScore.pop();//去掉最高分
+			validScore.shift();//去掉最低分
+			var sum = 0;
+			for(var i = 0; i < validScore.length; i++){
+				sum += validScore[i];
+			}
+			return (sum/5).toFixed(1);
+
+		}
+
+		//快速排序
+		function quickSort(arr) {
+			var len   = arr.length;
+			if (len <= 1) {
+				return arr;
+			}
+			var p     = arr[0];
+			var left  = [];
+			var right = [];
+			for(var i = 1; i < len; i++){
+				if(arr[i] > p){
+					right.push(arr[i]);
+				} else {
+					left.push(arr[i]);
+				}
+			}
+			return quickSort(left).concat(p,quickSort(right));
+		}
+
+		var arr = [5,6,7,7,8,9,8];
+		console.log(score(arr));
+
+
+//算股票价钱
+function maxProfit(arr){
+	var len = arr.length;
+	var maxItem  = Math.max.apply(null,arr);
+	var maxIndex = arr.indexOf(maxItem);
+	if(maxIndex != 0){
+		var resort = quickSort(arr);
+		var result = resort[len-1]-resort[0]
+		return (result);
+	}
+	if (maxIndex == 0) {
+		var resort = quickSort(arr);
+		resort.pop();
+		var result = resort[len-2]-resort[0]
+		return (result);
+	};
+}
+function quickSort(arr) {
+	var len   = arr.length;
+	if (len <= 1) {
+		return arr;
+	}
+	var p     = arr[0];
+	var left  = [];
+	var right = [];
+	for(var i = 1; i < len; i++){
+		if(arr[i] > p){
+			right.push(arr[i]);
+		} else {
+			left.push(arr[i]);
+		}
+	}
+	return quickSort(left).concat(p,quickSort(right));
+}
+
+var arr = [8,2,4,3,7,5];
+console.log(maxProfit(arr));
+
+	</script>
+
+</body>
+</html>
