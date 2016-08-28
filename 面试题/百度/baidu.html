@@ -91,6 +91,12 @@
 				leftList.appendChild(selectedLists[i]);
 			}
 		},false);
+//原生代码写bind函数
+		function bind(fn,context){
+			return function (){
+				return fn.apply(context,arguments);
+			}
+		}
 
 	</script>
 	
