@@ -26,11 +26,11 @@
 	</ul>
 	
 	<script type="text/javascript">
-		var list = document.getElementById("list");
-		list.addEventListener("click",function (event){
-			var target = event.target;
-			console.log(target.innerText);
-		},false);
+		// var list = document.getElementById("list");
+		// list.addEventListener("click",function (event){
+		// 	var target = event.target;
+		// 	console.log(target.innerText);
+		// },false);
 		//这个例子是《高级程序设计》中的例子，解决办法是利用闭包。但是，现在有个更好的方法，用let就可以了，因为let声明的变量只在块级作用域存在。
 		var lists = document.getElementsByTagName("li");
 		for (var i = 0,l = lists.length; i < l; i ++) {
@@ -42,44 +42,44 @@
 			lists[i].addEventListener("click",getNum,false);
 		}
 		
-		function createFunctions(){
-			  var result = new Array();
-			  for (var i=0; i < 10; i++){
-			    result[i] = function(num){
-			        return num;
-			    }(i);
-			  }
-			  return result;
-			}
-			var funcs = createFunctions();
-			for (var i=0; i < funcs.length; i++){
-			    console.log(funcs[i]);
-			}
+		// function createFunctions(){
+		// 	  var result = new Array();
+		// 	  for (var i=0; i < 10; i++){
+		// 	    result[i] = function(num){
+		// 	        return num;
+		// 	    }(i);
+		// 	  }
+		// 	  return result;
+		// 	}
+		// 	var funcs = createFunctions();
+		// 	for (var i=0; i < funcs.length; i++){
+		// 	    console.log(funcs[i]);
+		// 	}
 
-			var name = "The Window";
-			var object = {
-				name: "My Object",
-				getName: function () {
-					return function () {
-						return this.name;
-					}
-				}
-			};
-			console.log(object.getName()());
-
-
+		// 	var name = "The Window";
+		// 	var object = {
+		// 		name: "My Object",
+		// 		getName: function () {
+		// 			return function () {
+		// 				return this.name;
+		// 			}
+		// 		}
+		// 	};
+		// 	console.log(object.getName()());
 
 
-				var num = 1;
-				function showNum () {
-					var num = 0;
-					return funciton () {
-						console.log(num);
-					}
-				}
 
-				var f = showNum();
-				f();
+
+		// 		var num = 1;
+		// 		function showNum () {
+		// 			var num = 0;
+		// 			return funciton () {
+		// 				console.log(num);
+		// 			}
+		// 		}
+
+		// 		var f = showNum();
+		// 		f();
 	</script>
 </body>
 </html>

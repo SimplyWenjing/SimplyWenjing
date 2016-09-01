@@ -57,15 +57,38 @@
 		</div>
 	</section>
 	<section id="test2">
-		<div id="img">
-			<a href="baidu.html">click</a>
-		</div>
+		<!-- <div id="img"> -->
+			<a href="https://www.baidu.com" target="_blank" id="link">click</a>
+		<!-- </div> -->
+		<p data-name="hello">Hello</p>
 	</section>
 	
 
 	
 	<script type="text/javascript">
-		var leftList = document.getElementById("left-list");
+	var hello = document.querySelector('p[data-name]');
+	console.log(hello);
+	var link =  document.getElementById("link");
+	link.addEventListener("click",function (event) {
+		event.preventDefault()
+	},false)
+	/*var leftList = document.getElementById("left-list");
+	function elementToArray(nodes){
+		var array = [];
+		array = Array.prototype.slice.call(nodes,0);
+		var childElement = [];
+		var len = array.length;
+		for(var i = 0; i < len; i++){
+			if (array[i].nodeType == 1) {
+				childElement.push(array[i]);
+			}
+		}
+		return childElement;
+	}
+	var leftNodes = elementToArray(leftList.childNodes);
+	console.log(leftNodes);*/
+
+		/*var leftList = document.getElementById("left-list");
 		var rightList = document.getElementById("right-list");
 		var addBtn = document.getElementById("add-btn");
 		var delBtn = document.getElementById("del-btn");
@@ -97,7 +120,7 @@
 				return fn.apply(context,arguments);
 			}
 		}
-
+*/
 	</script>
 	
 	
