@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>模拟笔试</title>
+</head>
+<body>
+	<div id="timer">00:00:00</div>
+	<script type="text/javascript">
+	//计时器
+		/*var timer = document.getElementById("timer");
+		var time = ""//获取当前时间;
+		setInterval(function (){
+			time = new Date();
+			timeStr = time.toLocaleTimeString().slice(2);
+			var str = "<span>" + timeStr + "<\/span>";
+			timer.innerHTML = str;
+		},1000);*/
+	/*var obj = {
+		m:10
+	};
+	var obj2 = obj;
+	obj.a = obj2 ={
+		n:20
+	};
+	alert(obj.a);
+	alert(obj.m);*/
+/*	(function(){
+		function foo(){}
+		alert(foo);
+	}('foo'))*/
+
+
+		
+		
+
+
+/*	//输入输出
+http://www.nowcoder.com/test/question/done?tid=4978219&qid=45838  //内推编程题
+		process.stdin.resume();
+		process.stdin.setEncoding('ascii');
+
+		var input = "";
+		var input_array = "";
+
+		process.stdin.on('data', function (data) {
+		    input += data;
+		});
+
+		process.stdin.on('end', function () {
+		    input_array = input.split("\n");
+		    var nLine = 0;
+
+		    while(nLine < input_array.length){
+		    	var line = input_array[nLine++].trim();
+		    	if(line === ''){
+		    		continue;
+		    	}
+		        var input_arrays = line.split(' ');
+		        var a = +input_arrays[0];
+		        var b = +input_arrays[1];
+		        console.log(a+b);
+		    }
+		});
+
+//输入输出例题
+		var readline = require('readline');
+		const rl = readline.createInterface({
+		    input: process.stdin,
+		    output: process.stdout,
+		    terminal:false
+		});
+
+		var n = -1;// 初始状态为负数，表示还没开始读取
+		var ans = 0;
+		var cur_line = 0;
+		rl.on('line', function(line){ // javascript每行数据的回调接口
+		   if (n < 0) { // 测试用例第一行读取n
+		       n = parseInt(line.trim())
+		   } else {
+		       // 矩阵数据读取
+		   	   var tokens = line.split(' ');
+		       for (var i = 0; i < tokens.length; ++i) {
+		           // 题目逻辑求和，边读取边计算
+		           ans += parseInt(tokens[i]);
+		       }
+		       // 记录当前读取的行数
+		       cur_line += 1;
+		   }
+		    
+		   // 读取行数结束，如果确定只有一行额外的数据输入，也可以通过cur_line === 1来判断
+		   if (n === cur_line) {
+		       // 输出结果
+		       console.log(ans);
+		       // 重新初始化相关变量
+		       n = -1;
+		       ans = 0;
+		       cur_line = 0;
+		   }
+		});*/
+//DA+DB
+	/*function getP (A,DA) {
+		var arrA = A.toString().split("");
+		var len  = arrA.length;
+		var P = "";
+		for(var i = 0; i < len; i++){
+			if(parseInt(arrA[i]) == DA){
+				P = P.concat(arrA[i]);
+			}
+		}
+		return parseInt(P);
+	}
+
+	function sum (A,DA,B,DB){
+		return getP(A,DA) + getP(B,DB);
+	}
+	
+	console.log(sum(3322111,3,12223,1));*/
+//小明同学把1到n这n个数字按照一定的顺序放入了一个队列Q中。现在他对队列Q执行了如下程序：
+
+/*process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+var input = "";
+process.stdin.on('data', function (data) {
+    input += data;
+});
+process.stdin.on('end', function () {
+    var arr = input.split("\n"),
+        len = arr.length,
+        res = [];
+    for (var i=1; i<len; i++) {
+        var n = arr[i],
+            strArr = [];
+        for(var j=n; j>0; j--){
+            strArr.unshift(j);
+            strArr.unshift(strArr.pop());
+        }
+        res.push(strArr.join(" "));
+    }
+    process.stdout.write(res.join("\n"))
+});*/
+
+//洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把牌合并起来就可以了。 例如有6张牌，最开始牌的序列是1,2,3,4,5,6。首先分成两组，左手拿着1,2,3；右手拿着4,5,6。在洗牌过程中按顺序放下了6,3,5,2,4,1。把这六张牌再次合成一组牌之后，我们按照从上往下的顺序看这组牌，就变成了序列1,4,2,5,3,6。 现在给出一个原始牌组，请输出这副牌洗牌k次之后从上往下的序列
+/*#include <iostream>
+#include <vector>
+using namespace std;
+// 一个循环就行了
+void shuffle(unsigned int n, int k, std::vector<unsigned int>& out) {
+    std::vector<unsigned int> tmp;
+    while (k--) {
+        tmp = out;
+        for (unsigned int i = 0; i < n; ++i) {
+            out[2 * i] = tmp[i];
+            out[2 * i + 1] = tmp[n + i];
+        }
+    }
+}
+ 
+ 
+int main() {
+    int T, k;
+    unsigned int n;
+    cin >> T;
+    while(T--) {
+        cin >> n >> k;
+        std::vector<unsigned int> out(2 * n);
+        for (unsigned int j = 0; j < 2 * n; ++j) {
+            cin >> out[j];
+        }
+        shuffle(n, k, out);
+        for (unsigned int j = 0; j < 2 * n; ++j) {
+            if (j == 0) {
+                cout << out[j];
+            }
+            else {
+                cout << ' ' << out[j];
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}*/
+function getABC(A_B,B_C,AandB,BandC){
+	var A,B,C;
+	var res = "";
+	A = (A_B + AandB)/2;
+	B = (B_C + BandC)/2;
+	C = BandC - B;
+	if (isInteger(A)&&isInteger(B)&&isInteger(C)) {
+		res += A + " "+ B + " " + C+ " " ;
+		return res;
+	}else{
+		return "No";
+	}	
+}
+function isInteger(obj) {
+	return obj%1 === 0;
+}
+
+console.log(getABC(1,-2,3,4));
+
+function RevX(num){
+	var numStr = num +"";
+	var numStrArr = numStr.split("");
+	var revStrArr = reverse(numStrArr);
+	var length = revStrArr.length;
+	var revStr = "";
+	for(var i = 0; i < length;i++){
+		revStr += revStrArr[i];
+	}
+	return +revStr;
+}
+function reverse(arr) {
+	var len = arr.length;
+	var re  = [];
+	while(arr.length > 0){			
+		re.push(arr.pop());
+	}
+	return re;
+}
+function Rev(x,y){
+	var result = RevX(x)+RevX(y);
+	return RevX(result);
+}
+console.log(Rev(123,100));
+	</script>
+
+
+</body>
+</html>

@@ -7,26 +7,26 @@
 <body>
 	<script type="text/javascript">
 /*--------------------转换方法---------------------*/
-	var colors = ['red','green','blue'];
-	console.log('toString返回:' + colors.toString());
-	console.log('valueOf返回：' + colors.valueOf());
-	console.log('toLocalString返回：' + colors.toLocaleString());
-/*-----------------------join方法----------------------*/
-	console.log(colors.join('-')); //red-green-blue
+// 	var colors = ['red','green','blue'];
+// 	console.log('toString返回:' + colors.toString());
+// 	console.log('valueOf返回：' + colors.valueOf());
+// 	console.log('toLocalString返回：' + colors.toLocaleString());
+// /*-----------------------join方法----------------------*/
+	// console.log(colors.join('-')); //red-green-blue
 /*-------------push() pop() 栈方法，后进先出---------------*/
-	var count = colors.push('black','white');
-	console.log('colors\'s length:' + count);//5
-	var item = colors.pop();
-	console.log('pop()返回的是：' + item);//white,pop()移出末尾的项，并返回这个项
+	// var count = colors.push('black','white');
+	// console.log('colors\'s length:' + count);//5
+	// var item = colors.pop();
+	// console.log('pop()返回的是：' + item);//white,pop()移出末尾的项，并返回这个项
 /*----------------------队列方法:先进先出 shift() push() unshift() --------------------------*/
-    colors.push('pink');
-    var item2 = colors.shift();//取得第一项
-    console.log('shift()返回的是第一项：' + item2);
-    var animal = ['dog','miao','bird'];
-    var count2 = animal.unshift('people');
-    console.log(animal + '数组长度为：' + count2);
-    var item3 = animal.pop();
-    console.log(item3);
+    // colors.push('pink');
+    // var item2 = colors.shift();//取得第一项
+    // console.log('shift()返回的是第一项：' + item2);
+    // var animal = ['dog','miao','bird'];
+    // var count2 = animal.unshift('people');
+    // console.log(animal + '数组长度为：' + count2);
+    // var item3 = animal.pop();
+    // console.log(item3);
 
     //push():往数组末端添加项；
     //pop():从数组末端删除项
@@ -34,108 +34,125 @@
     //unshift():从数组前端添加项
 
 /*--------------------------重排序方法 reverse() sort()-----------------------*/
-	var values = [1,2,3,4,5,6];
-	values.reverse();
-	console.log('reverse()反转后：' + values);//6,5,4,3,2,1
+	// var values = [1,2,3,4,5,6];
+	// values.reverse();
+	// console.log('reverse()反转后：' + values);//6,5,4,3,2,1
 /*-----------------------------原生JS实现reverse------------------------------------*/
-	var reverse = function (arr) {
-		var len = arr.length;
-		var re  = [];
-		while(arr.length > 0){			
-			re.push(arr.pop());
-		}
-		return re;
-	}
-	var A = [1,2,3,4,5];
-	// console.log(reverse(A));
-	// console.log(A);
+// 	var reverse = function (arr) {
+// 		var len = arr.length;
+// 		var re  = [];
+// 		while(arr.length > 0){			
+// 			re.push(arr.pop());
+// 		}
+// 		return re;
+// 	}
+// 	var A = [1,2,3,4,5];
+// 	// console.log(reverse(A));
+// 	// console.log(A);
 
-	var reverse1 = function (arr) {
-		var len = arr.length;
-		var re  = [];
-		for( var i = len-1; i > -1; i --){
-			re.push(arr[i]);
-		}
-		return re;
-	}
-	console.log(reverse1(A));
-	console.log(A);
+// 	var reverse1 = function (arr) {
+// 		var len = arr.length;
+// 		var re  = [];
+// 		for( var i = len-1; i > -1; i --){
+// 			re.push(arr[i]);
+// 		}
+// 		return re;
+// 	}
+// 	// console.log(reverse1(A));
+// 	// console.log(A);
 
-	var values2 = [0,1,5,10,15];
-	values2.sort();
-	console.log(values2);
-/*-------------------------操作方法  concat() slice() splice() -------------------------*/
-	//concat方法拼接数组
-	var name1 = ['vicky','jonhy','jay'];
-	var name2 = ['Song','Kong'];
-	var name = name1.concat(name2);
-	console.log('concat () 拼接数组得到：' + name);
+// 	var values2 = [0,1,5,10,15];
+// 	values2.sort();
+// 	// console.log(values2);
+// /*-------------------------操作方法  concat() slice() splice() -------------------------*/
+// 	//concat方法拼接数组
+// 	var name1 = ['vicky','jonhy','jay'];
+// 	var name2 = ['Song','Kong'];
+// 	var name = name1.concat(name2);
+// 	// console.log('concat () 拼接数组得到：' + name);
 
 	//slice方法
 	/*基于当前数组中的一项或多项创建一个新数组。只有一个参数的话，返回从该参数指定位置开始到当前数组末尾的所有项；有两个参数的话，该方法返回起始和结束位置之间的项，但不包括接受位置的项。slice方法不会影响到原数组*/
-	var number = [0,1,2,3,4,5,6];
-	var number3 = number.slice(3);
-	console.log('number3:' + number3);
-	var number3_5 = number.slice(3,6);
-	console.log(number3_5);
-	//splice () 方法，主要用途是向数组中部插入项
-	var array = [0,1,2,3,4,5,6];
-	//删除，2个参数 （要删除的第一项的位置，要删除的项数）
-	var remove = array.splice(3,2);
-	console.log('array删除了：' + remove +'变为：' + array );
-	//插入，3个参数（起始位置，0（表示要删除的项数，不删除为0），要插入的项）
-	array.splice(3,0,3,4);
-	console.log(array);
-	//替换，3个参数（起始位置，要删除的项数，要插入的任意数量的项）
-	array.splice(3,2,8,8,8);
-	console.log(array);
+	// var number = [0,1,2,3,4,5,6];
+	// var number3 = number.slice(3);
+	// // console.log('number3:' + number3);
+	// var number3_5 = number.slice(3,6);
+	// // console.log(number3_5);
+	// //splice () 方法，主要用途是向数组中部插入项
+	// var array = [0,1,2,3,4,5,6];
+	// //删除，2个参数 （要删除的第一项的位置，要删除的项数）
+	// var remove = array.splice(3,2);
+	// // console.log('array删除了：' + remove +'变为：' + array );
+	// //插入，3个参数（起始位置，0（表示要删除的项数，不删除为0），要插入的项）
+	// array.splice(3,0,3,4);
+	// // console.log(array);
+	// //替换，3个参数（起始位置，要删除的项数，要插入的任意数量的项）
+	// array.splice(3,2,8,8,8);
+	// console.log(array);
 /*--------------------------位置方法---------------------------*/
-	console.log(array.indexOf(111));
+	// console.log(array.indexOf(111));
 /*----------------------------迭代方法------------------------*/
-	var numbers = [1,2,3,4,5,6,7,8,9];
-	//every()查询数组中的项是否满足条件，都满足则返回true
-	var everyResult = numbers.every(function (item,index,array) {
-		return (item > 2);
-	}) 
-	console.log('every：' + everyResult);
-	//some() 查询数组中的项是否满足条件，任意一个满足就返回true
-	var someResult = numbers.some(function (item,index,array) {
-		return (item > 2);
-	})
-	console.log('some:' + someResult);
-	//filter(),返回所有满足条件的项组成的新数组
-	var filterResult = numbers.filter(function (item,index,array) {
-		return (item >2);
-	})
-	console.log('filter:' + filterResult);
-	//map(),返回每一项运行函数后的结果的数组
-	var mapResult = numbers.map(function (item,index,array) {
-		return item * 0;
-	})
-	console.log('map:' + mapResult);
+	// var numbers = [1,2,3,4,5,6,7,8,9];
+	// //every()查询数组中的项是否满足条件，都满足则返回true
+	// var everyResult = numbers.every(function (item,index,array) {
+	// 	return (item > 2);
+	// }) 
+	// // console.log('every：' + everyResult);
+	// //some() 查询数组中的项是否满足条件，任意一个满足就返回true
+	// var someResult = numbers.some(function (item,index,array) {
+	// 	return (item > 2);
+	// })
+	// // console.log('some:' + someResult);
+	// //filter(),返回所有满足条件的项组成的新数组
+	// var filterResult = numbers.filter(function (item,index,array) {
+	// 	return (item >2);
+	// })
+	// // console.log('filter:' + filterResult);
+	// //map(),返回每一项运行函数后的结果的数组
+	// var mapResult = numbers.map(function (item,index,array) {
+	// 	return item * 0;
+	// })
+	// // console.log('map:' + mapResult);
 
 /*--------------------------归并方法 reduce() reduceRight()--------------------------*/
-	var sum = numbers.reduce(function (prev,cur,index,array) {
-		return prev + cur;
-	})
-	console.log(sum);
+	// var sum = numbers.reduce(function (prev,cur,index,array) {
+	// 	return prev + cur;
+	// })
+	// // console.log(sum);
 /*----------------------------数组去重方法 distinct-------------------------------------*/
-	var distinct = function (arr) {
-		var len  = arr.length;
-		var json = {};
-		var dis  = [];
-		for (var i = 0; i < len; i ++) {
-			var val = arr[i];
-			if(!json[val]){
-				json[val] = 1;
-				dis.push(val);
-			}
-		} 
-		return dis;
- 	}
+	// var distinct = function (arr) {
+	// 	var len  = arr.length;
+	// 	var json = {};
+	// 	var dis  = [];
+	// 	console.log(arr);
+	// 	for (var i = 0; i < len; i ++) {
+	// 		var val = arr[i];
+	// 		console.log(val);
+	// 		console.log(typeof val);
+	// 		if(!json[val]){
+	// 			json[val] = 1;
+	// 			dis.push(val);
+	// 		}
+	// 	} 
+	// 	return dis;
+ // 	}
 
- 	var testArray = [1,2,2,2,3,5,4,4];
- 	console.log(distinct(testArray));
+ 	function distinct(arr){
+	    var self = arr;
+	    var list = self.concat().sort();
+	        
+	    list.sort(function(a, b){
+	        if(a === b){
+	            var ind = self.indexOf(a);
+	            self.splice(ind, 1);
+	        }
+	    });
+	    return self;
+	}
+ var arr = ['a','b','c','1',0,'c',1,'',1,0];
+ console.log(distinct(arr));
+ 	// var testArray = [1,2,2,2,3,5,4,4];
+ 	// console.log(distinct(testArray));
 	</script>
 </body>
 </html>
